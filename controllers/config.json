@@ -1,0 +1,4 @@
+{
+    "matrix_service": "39.104.109.10:6601/rec/image/batch",
+    "ranker_service": "39.104.109.10:6701/rank/feature"
+}
