@@ -11,8 +11,8 @@ import (
 	"strings"
 	"github.com/astaxie/beego"
 )
-var matrixServer = "http://39.104.109.10:6601/rec/image/batch"
-var matrixServerSingle = "http://39.104.109.10:6601/rec/image"
+var matrixServer = "http://39.104.109.10:7601/rec/image/batch"
+var matrixServerSingle = "http://39.104.109.10:7601/rec/image"
 var rankerServer = "http://39.104.109.10:6701/rank"
 type MainController struct {
 	beego.Controller
@@ -45,6 +45,9 @@ type AnResponse struct {
         Message    string  `json:"message"`
         Sex    string  `json:"sex"`
         Age    int  `json:"age"`
+}
+type PingResponse struct {
+	Message	string `json:"message"`
 }
 
 type PostData struct {
@@ -97,9 +100,8 @@ type Result struct {
 		Score float32
 	}
 }
- func (this *PingController) GET() {
-        response := &AnResponse{
-                Rtn:        200,
+func (this *PingController) Get() {
+        response := &PingResponse{
                 Message:    "OK",
         }
         this.Data["json"] = response

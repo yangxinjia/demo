@@ -9,7 +9,7 @@ import threading
 import logging
 from sys import argv
 # -*- coding: utf8 -*-
-url='http://localhost:7001/rec/image'
+url='http://localhost:6001/rec/image'
 counts = [0,0,0,0,0,0,0,0,0,0]
 costs = [0,0,0,0,0,0,0,0,0,0]
 
