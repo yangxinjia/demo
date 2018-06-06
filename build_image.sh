@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 project=$(basename `pwd`)
 version=$(cat VERSION)
 echo "Build image ${project} start"
