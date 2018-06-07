@@ -2,7 +2,7 @@
 
 set -e
 
-docker run --rm -i -t \
+docker run --rm -i \
 -v $(pwd):/go/src/demo/ \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /var/lib/docker:/var/lib/docker \
