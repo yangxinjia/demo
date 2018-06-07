@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-	"demo/github.com/astaxie/beego"
+	"github.com/astaxie/beego"
 )
 var matrixServer = "http://39.104.109.10:7601/rec/image/batch"
 var matrixServerSingle = "http://39.104.109.10:7601/rec/image"
