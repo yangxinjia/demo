@@ -4,7 +4,6 @@ set -e
 
 docker run --rm -i -t \
 -v $(pwd):/go/src/demo/ \
--v $(pwd)/../github.com/:/go/src/github.com/ \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /var/lib/docker:/var/lib/docker \
 -v /usr/bin/docker:/usr/bin/docker \
