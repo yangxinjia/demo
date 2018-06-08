@@ -17,5 +17,5 @@ docker run --rm -i \
 -v $(pwd):/demo/ \
 -w /demo \
 docker.dg-atlas.com:5000/demo-test:1.0 \
-python pressure.py
+python pressure.py  >  out.file  2>&1  &
 
