@@ -7,3 +7,7 @@ spawn ssh root@172.24.156.85 "cd work; tar -zxvf demo-0.0.1.tar.gz; cd demo-0.0.
 expect "password:"
 send "L70aSp12\r"
 expect eof
+spawn ssh root@172.24.156.85 "cd work; cd demo-0.0.1; ./performance_test.sh"
+expect "password:"
+send "L70aSp12\r"
+expect eof
