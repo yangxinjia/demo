@@ -55,4 +55,4 @@ do
     i=$(($i+1))
 done
 echo
-
+python draw.py gpu_mem "${result[@]}"

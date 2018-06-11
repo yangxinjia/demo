@@ -6,9 +6,9 @@ declare -a Util_0
 declare -a Util_1
 declare -a result
 
-total_time=120
+total_time=20
 interval=1
-times_e=3
+times_e=1
 times=$(($total_time/$(($interval*$times_e))))
 sum_0=0
 sum_1=0
@@ -59,3 +59,4 @@ do
 done
 echo
 
+python draw.py cpu "${result[@]}"
