@@ -6,7 +6,7 @@ declare -a Util_0
 declare -a Util_1
 declare -a result
 
-total_time=120
+total_time=60
 interval=1
 times_e=3
 times=$(($total_time/$(($interval*$times_e))))
