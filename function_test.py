@@ -8,7 +8,9 @@ import sys
 import random
 #from sys import argv
 
+
 url = 'http://39.104.109.10:6000'
+url = 'http://localhost:6000'
 inte_ping = url + '/demo/ping'
 inte_an = url + '/demo/an'
 inte_1vs1 = url + '/demo/1vs1'
@@ -33,6 +35,14 @@ def one(face_url,e_status):
 	
         if int(rtn) == int(e_status) :
             return "PASS  (status:%s = expect status, message: %s)    \nface:%s  age:%s  sex:%s\n%.2f ms\n"%(rtn,message,face_url,age,sex,cost)
+#	if sex == "男":
+#            sex = "man"
+#	else: 
+#	    sex = "women"
+	age = ret['age']
+	
+        if int(rtn) == int(e_status) :
+            return "PASS  (status:%s = expect status, message: %s)    \nface:%s  age:%s  sex:%s\n%.2f\n"%(ret,message,face_url,age,sex,cost)
         else :
             return "FAILED  (status:%s != expect status:%s,message: %s)   %.2fms\n"%(rtn,e_status,message,cost)
     except :
@@ -90,3 +100,34 @@ res = oto("http://file.dg-atlas.com:3003/images/face/none.jpg","http://file.dg-a
 print res
 #res = oto("http://file.dg-atlas.com:3003/images/face/none.jpg","http://file.dg-atlas.com:3003/images/face/yangmi4.jpg",200)
 #print res
+            return "PASS  (status:%s = expect status, message: %s)    \nsimilarity\n%.2f\n"%(ret,message,similarity,cost)
+        else :
+            return "FAILED  (status:%s != expect status:%s,message: %s)   %.2fms\n"%(rtn,e_status,message,cost)
+    except :
+        return "connection refused\n"
+
+with open('/root/work/testLog','w+r') as f:
+	f.write(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+res = one("http://file.dg-atlas.com:3003/images/face/2.jpg",200)
+print res
+with open('/root/work/testLog','a') as f:
+        f.write(res)
+res = one("http://file.dg-atlas.com:3003/images/face/yangmi1.jpg",200)
+print res
+with open('/root/work/testLog','a') as f:
+        f.write(res)
+res = one("http://file.dg-atlas.com:3003/images/face/yangmi1.jpg",200)
+print res
+with open('/root/work/testLog','a') as f:
+        f.write(res)
+res = one("http://file.dg-atlas.com:3003/images/face/yangmi2.jpg",200)
+print res
+with open('/root/work/testLog','a') as f:
+        f.write(res)
+res = oto("http://file.dg-atlas.com:3003/images/face/yangmi2.jpg","http://file.dg-atlas.com:3003/images/face/yangmi4.jpg",200)
+print res
+with open('/root/work/testLog','a') as f:
+        f.write(res)
+res = oto("http://file.dg-atlas.com:3003/images/face/yangmi5.jpg","http://file.dg-atlas.com:3003/images/face/yangmi4.jpg",200)
+print res
+
