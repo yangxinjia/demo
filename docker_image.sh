@@ -9,5 +9,5 @@ docker run --rm -i \
 -v /usr/bin/docker:/usr/bin/docker \
 -v /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7 \
 -w /go/src/demo \
-docker.dg-atlas.com:5000/demo-compile:1.0 \
+docker.dg-atlas.com:5000/demo-compile:1.1 \
 ./build_image.sh
