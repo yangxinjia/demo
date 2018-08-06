@@ -5,9 +5,9 @@ pipeline {
     stages {
         stage('Echo') {
             steps {
-                echo 'step 1 ********' 
+		echo '${GIT_COMMIT},${GIT_BRANCH}' 
             }
-        }
+	}
 	 stage('Build') {
             steps {
                 sh 'docker_image.sh' 
