@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Echo') {
             steps {
-		echo '${GIT_COMMIT},${GIT_BRANCH}' 
+		sh 'echo ${GIT_COMMIT},${GIT_BRANCH}' 
             }
 	}
 	 stage('Build') {
