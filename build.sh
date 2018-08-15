@@ -20,7 +20,7 @@ if [ $# != 1 ];then
     exit
 fi
 if [ "$1" == "compile" ];then
-    build
+    compile
 fi
 if [ "$1" == "run" ];then
     run
