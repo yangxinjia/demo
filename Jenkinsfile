@@ -25,7 +25,7 @@ pipeline {
         }
         stage('ShowTestResult') {
 	    steps {
-		junit allowEmptyResults: true, testResults: './demo_test.xml'
+		junit allowEmptyResults: true, testResults: '/var/lib/jenkins/workspace/demo_t-QE45HI5SL2AYHC5FRCSHVJFPWZGLBY7X5UQC6G72M56AYGAAXOIQ/demo_test.xml'
 	    }
 	}
         stage('SendEmail'){
