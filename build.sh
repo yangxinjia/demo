@@ -22,6 +22,9 @@ if [ $# != 1 ];then
     echo "<ci.sh usage : build / end>"
     exit
 fi
+if [ $1 == "check" ];then
+    check
+fi
 if [ "$1" == "compile" ];then
     compile
 fi
