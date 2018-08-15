@@ -5,17 +5,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'build.sh compile'
+                sh './build.sh compile'
             }
         }
 	stage('Run') {
 	    steps {
-		sh 'build.sh run'
+		sh './build.sh run'
 	    }
 	}
         stage('Test') {
             steps {
-                sh 'build.sh test'
+                sh './build.sh test'
             }
         }
         stage('ShowTestResult') {
@@ -30,7 +30,7 @@ pipeline {
 	}
 	stage('End') {
 	    steps {
-		sh "build.sh end"
+		sh "./build.sh end"
 	    }
 	}
     }
