@@ -3,22 +3,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Echo') {
+        stage('Build') {
             steps {
-		sh 'echo ${GIT_COMMIT},${GIT_BRANCH}' 
+                sh 'build.sh compile'
             }
+        }
+	stage('Run') {
+	    steps {
+		sh 'build.sh run'
+	    }
 	}
-	 stage('Build') {
+        stage('Test') {
             steps {
-                sh 'docker_image.sh' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+                sh 'build.sh test'
             }
         }
+        stage('ShowTestResult') {
+	    steps {
+		junit allowEmptyResults: true, testResults: './demo_test.xml'
+	    }
+	}
+        stage('SendEmail'){
+	    steps{
+                mail bcc: '', body: 'ci Jenkinsfile pipline mail test', cc: '18810911526@163.com', from: '', replyTo: '', subject: 'test_CI', to: 'xinjiayang@deepglint.com'
+	    }
+	}
 	stage('End') {
-            steps {
-                echo 'end ********'
-            }
-        }
-
+	    steps {
+		sh "build.sh end"
+	    }
+	}
     }
 }
