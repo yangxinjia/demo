@@ -1,6 +1,6 @@
 #!/bin/bash
 function check(){
-    sed -i 's/$(pwd)/\/data_1\/jenkins\/workspace\/test_t-UFA55RUYY7V^C2BSHBFS4EBOCEL3NMA6JBVBQZDXJ7ZJ7XYHPV2Q/' docker_image.sh
+    sed -i 's/$(pwd)/\/data_1\/jenkins\/workspace\/test_t-UFA55RUYY7VIA2BSHBFS4EBOCEL3NMA6JBVBQZDXJ7ZJ7XYHPV2Q/' docker_image.sh
     exit
 }
 function compile(){
