@@ -8,7 +8,8 @@ function compile(){
     exit
 }
 function test(){
-    nosetests demo_test.py --with-xunit --xunit-file=demo_test.xml
+    mkdir -p report
+    nosetests demo_test.py --with-xunit --xunit-file=./report/demo_test.xml
     exit
 }
 function run(){
