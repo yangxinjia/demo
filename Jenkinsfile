@@ -3,7 +3,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Check') {
+            steps {
+                sh './build.sh check'
+            }
+        }
+        stage('Compile') {
             steps {
                 sh './build.sh compile'
             }
