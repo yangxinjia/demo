@@ -1,6 +1,6 @@
 #!/bin/bash
 function check(){
-    sed -i 's/$(pwd)/\/data_1\/jenkins\/workspace\/test_t-UFA55RUYY7VIA2BSHBFS4EBOCEL3NMA6JBVBQZDXJ7ZJ7XYHPV2Q/' docker_image.sh
+    sed -i 's/$(pwd)/\/data_1\/jenkins\/workspace\/demo_t-QE45HI5SL2AYHC5FRCSHVJFPWZGLBY7X5UQC6G72M56AYGAAXOIQ/' docker_image.sh
     exit
 }
 function compile(){
@@ -13,7 +13,7 @@ function test(){
 }
 function run(){
     cd release/images/demo-$(cat VERSION)/
-    ./run_image.sh
+    ./run_native.sh
     exit
 }
 function end(){
