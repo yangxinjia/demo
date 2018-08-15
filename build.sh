@@ -12,8 +12,7 @@ function test(){
     exit
 }
 function run(){
-    cd release/images/demo-$(cat VERSION)/
-    ./run_native.sh
+    ./run_image.sh
     exit
 }
 function end(){
