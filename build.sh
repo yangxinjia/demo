@@ -8,7 +8,7 @@ function compile(){
     exit
 }
 function test(){
-    nosetests demo_test.py --with-xunit  demo_test.xml
+    nosetests demo_test.py --with-xunit --xunit-file=demo_test.xml
     exit
 }
 function run(){
