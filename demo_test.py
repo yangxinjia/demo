@@ -185,7 +185,7 @@ class Testvse(unittest.TestCase):
             message = resp['message']
             similarity = resp['similarity']
             self.assertEqual(rtn,200)
-            self.assertEqual(message,"OK")
+            self.assertEqual(message,"ERROR")
             self.assertEqual(similarity,0.87044555)
         def test_case13_oto(self):
             url = "%s:%s/demo/1vs1" %(host,port)
