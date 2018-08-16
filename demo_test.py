@@ -210,7 +210,7 @@ class Testvse(unittest.TestCase):
             rtn = resp['rtn']
             message = resp['message']
             similarity = resp['similarity']
-            self.assertEqual(rtn,200)
+            self.assertEqual(rtn,300)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case15_oto(self):
@@ -225,7 +225,7 @@ class Testvse(unittest.TestCase):
             similarity = resp['similarity']
             self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
-            self.assertEqual(similarity,0.87044555)
+            self.assertEqual(similarity,0.87044556)
         def test_case16_oto(self):
             url = "%s:%s/demo/1vs1" %(host,port)
             face1="http://file.dg-atlas.com:3003/images/face/yangmi1.jpg"
@@ -382,6 +382,62 @@ class Testvse(unittest.TestCase):
             self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
+	def test_case28_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
+	def test_case29_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
+	def test_case30_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,25)
+	def test_case31_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,400)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
 if __name__ == '__main__' :
     unittest.main()
 
