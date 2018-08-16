@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 project=$(basename `pwd`)
 version=$(cat VERSION)
 echo "Build image ${project} start"
@@ -11,6 +12,8 @@ cp ../../../VERSION .
 cp ../../../README.md .
 cp ../../../run_image.sh .
 cp ../../../conf . -r
+cp ../../../per_test/ . -r
+cp ../../../performance_test.sh .
 cd ..
 tar -czvf ${project}-${version}.tar.gz ${project}-${version}
 echo "Build image ${project} finished"

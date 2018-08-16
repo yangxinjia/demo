@@ -11,8 +11,8 @@ import (
 	"strings"
 	"github.com/astaxie/beego"
 )
-var matrixServer = "http://39.104.109.10:6601/rec/image/batch"
-var matrixServerSingle = "http://39.104.109.10:6601/rec/image"
+var matrixServer = "http://39.104.109.10:7601/rec/image/batch"
+var matrixServerSingle = "http://39.104.109.10:7601/rec/image"
 var rankerServer = "http://39.104.109.10:6701/rank"
 type MainController struct {
 	beego.Controller
@@ -20,6 +20,10 @@ type MainController struct {
 type AnController struct {
         beego.Controller
 }
+type PingController struct {
+        beego.Controller
+}
+
 
 type Request struct {
 	FaceID1   string `json:"face_id_1"`
@@ -41,6 +45,9 @@ type AnResponse struct {
         Message    string  `json:"message"`
         Sex    string  `json:"sex"`
         Age    int  `json:"age"`
+}
+type PingResponse struct {
+	Message	string `json:"message"`
 }
 
 type PostData struct {
@@ -93,6 +100,14 @@ type Result struct {
 		Score float32
 	}
 }
+func (this *PingController) Get() {
+        response := &PingResponse{
+                Message:    "OK",
+        }
+        this.Data["json"] = response
+        this.ServeJSON()
+        return
+}
 
 func postData(uri string, data PostData) (*Result, error, int) {
 	var err error
@@ -142,7 +157,6 @@ func (this *MainController) Post() {
 	request := &Request{}
 	json.Unmarshal(this.Ctx.Input.RequestBody, request)
 
-	// 组织Matrix请求
 	var matrixPostData PostData
 	matrixPostData.Context.SessionId = "1vs1"
 	matrixPostData.Context.Type = 2
@@ -150,7 +164,6 @@ func (this *MainController) Post() {
 	matrixPostData.Images[0].Data.URI = request.ImageURL1
 	matrixPostData.Images[1].Data.URI = request.ImageURL2
 
-	// 请求Matrix
 	ret, err, status := postData(matrixServer, matrixPostData)
 	if err != nil {
 		this.SendError(status, err, request.FaceID1, request.FaceID2)
@@ -165,13 +178,11 @@ func (this *MainController) Post() {
 		return
 	}
 
-	// 组织Ranker请求
 	var rankerPostData PostData
 	rankerPostData.ObjectFeature.Feature = ret.Results[0].Faces[0].Features
 	rankerPostData.Params.Normalization = "true"
 	rankerPostData.ObjectCandidates[0].Feature = ret.Results[1].Faces[0].Features
 
-	// 请求Ranker
 	ret, err, status = postData(rankerServer, rankerPostData)
 	if err != nil {
 		this.SendError(status, err, request.FaceID1, request.FaceID2)
@@ -182,7 +193,6 @@ func (this *MainController) Post() {
 		return
 	}
 
-	// 返回成功后的结果
 	response := &Response{
 		Rtn:        200,
 		Message:    "OK",
@@ -208,14 +218,12 @@ func (this *AnController) SendError(statusCode int, err error) {
 func (this *AnController) Post() {
 	request := &Request{}
         json.Unmarshal(this.Ctx.Input.RequestBody, request)
-        // ç»~Dç»~GMatrix请æ±~B
-        var matrixPostData PostData
+	var matrixPostData PostData
         matrixPostData.Context.SessionId = "one person"
         matrixPostData.Context.Type = 2
         matrixPostData.Context.Functions = []int{200, 201, 202, 203, 204, 205}
         matrixPostData.Image.Data.URI = request.Face
 
-        // 请æ±~BMatrix
         ret, err, status := postData(matrixServerSingle, matrixPostData)
 	if err != nil {
 		fmt.Println("err")

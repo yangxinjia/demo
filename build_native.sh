@@ -11,7 +11,7 @@ echo "Build native ${project} start"
 mkdir -p release/native/${project}
 
 go build -o demo .
-mv demo release/native/${project}
+cp demo release/native/${project}
 cp README.md release/native/${project}
 cp VERSION release/native/${project}
 cp run_native.sh release/native/${project}

@@ -2,7 +2,7 @@
 set -e 
 
 docker run --rm -i \
--v /data_1/jenkins/workspace/demo:/demo/ \
--w /demo \
-docker.dg-atlas.com:5000/golang:1.9 \
+-v $(pwd):/go/src/demo/ \
+-w /go/src/demo \
+docker.dg-atlas.com:5000/demo-compile:1.1 \
 ./build_native.sh
