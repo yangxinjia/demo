@@ -25,7 +25,7 @@ pipeline {
         }
         stage('ShowTestResult') {
 	    steps {
-		junit allowEmptyResults: true, testResults: 'report/*.xml'
+		junit 'report/demo_test.xml'
 	    }
 	}
         stage('SendEmail'){
