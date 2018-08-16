@@ -9,7 +9,7 @@ function compile(){
 }
 function test(){
     mkdir -p report
-    nosetests demo_test.py --with-xunit --xunit-file=./report/demo_test.xml
+    nosetests demo_test.py --with-html --html-file=./report/demo_test.html
     exit
 }
 function run(){

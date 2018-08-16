@@ -25,7 +25,7 @@ pipeline {
         }
         stage('ShowTestResult') {
 	    steps {
-		junit 'report/demo_test.xml'
+	        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'report/demo_test.html', reportFiles: 'index.html', reportName: 'HTML Report'])
 	    }
 	}
         stage('SendEmail'){
