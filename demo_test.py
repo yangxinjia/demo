@@ -9,7 +9,7 @@ import sys
 import random
 import unittest
 
-host = "http://39.104.109.10"
+host = "http://localhost"
 port = "6000"
 def anBody(face_uri):
     an_body={"face": face_uri}
@@ -327,7 +327,7 @@ class Testvse(unittest.TestCase):
             rtn = resp['rtn']
             message = resp['message']
             similarity = resp['similarity']
-            self.assertEqual(rtn,201)
+            self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case24_oto(self):
