@@ -423,7 +423,7 @@ class TestDemo(unittest.TestCase):
             self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(sex,u'\u5973')
-            self.assertEqual(age,25)
+            self.assertEqual(age,22)
 	def test_case31_an(self):
             url = "%s:%s/demo/an" %(host,port)
             face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
@@ -434,7 +434,7 @@ class TestDemo(unittest.TestCase):
             message = resp['message']
             sex = resp['sex']
             age = resp['age']
-            self.assertEqual(rtn,400)
+            self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(sex,u'\u5973')
             self.assertEqual(age,22)
