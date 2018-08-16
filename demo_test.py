@@ -158,7 +158,7 @@ class Testvse(unittest.TestCase):
             rtn = resp['rtn']
             message = resp['message']
             similarity = resp['similarity']
-            self.assertEqual(rtn,200)
+            self.assertEqual(rtn,201)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case11_oto(self):
