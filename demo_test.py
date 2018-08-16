@@ -43,7 +43,6 @@ class TestDemo(unittest.TestCase):
             self.assertEqual(resp.text,u'{\n  "message": "OK"\n}')
             self.assertEqual(status,200)
 	def test_case02_1vs1(self):
-#	    print("case2_1vs1:")
             url = "%s:%s/demo/1vs1" %(host,port)
             face1="http://file.dg-atlas.com:3003/images/face/yangmi1.jpg"
             face2="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"

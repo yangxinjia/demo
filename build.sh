@@ -21,7 +21,7 @@ function end(){
     exit
 }
 if [ $# != 1 ];then
-    echo "<ci.sh usage : build / end>"
+    echo "<build.sh usage : check / compile / test / run / end>"
     exit
 fi
 if [ $1 == "check" ];then
