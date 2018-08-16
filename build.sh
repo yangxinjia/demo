@@ -1,7 +1,6 @@
 #!/bin/bash
 function check(){
-    sed -i 's/$(pwd)/\/var\/lib\/jenkins\/workspace\/demo_t-QE45HI5SL2AYHC5FRCSHVJFPWZGLBY7X5UQC6G72M56AYGAAXOIQ/' docker_image.sh run_image.sh
-    exit
+    exit 0
 }
 function compile(){
     ./docker_image.sh
