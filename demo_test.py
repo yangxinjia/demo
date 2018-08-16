@@ -438,6 +438,62 @@ class TestDemo(unittest.TestCase):
             self.assertEqual(message,"OK")
             self.assertEqual(sex,u'\u5973')
             self.assertEqual(age,22)
+	def test_case32_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
+        def test_case33_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
+	def test_case34_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
+        def test_case35_an(self):
+            url = "%s:%s/demo/an" %(host,port)
+            face="http://file.dg-atlas.com:3003/images/face/yangmi4.jpg"
+            body = anBody(face)
+            resp,status=self.post(url,body)
+            resp = json.loads(resp.content.decode('utf-8'))
+            rtn = resp['rtn']
+            message = resp['message']
+            sex = resp['sex']
+            age = resp['age']
+            self.assertEqual(rtn,200)
+            self.assertEqual(message,"OK")
+            self.assertEqual(sex,u'\u5973')
+            self.assertEqual(age,22)
 if __name__ == '__main__' :
     unittest.main()
 
