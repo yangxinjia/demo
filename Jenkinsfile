@@ -30,7 +30,7 @@ pipeline {
 //	}
         stage('SendEmail'){
 	    steps{
-                mail bcc: '', body: 'ci Jenkinsfile pipline mail test', cc: '18810911526@163.com', from: '', replyTo: '', subject: 'test_CI', to: 'xinjiayang@deepglint.com'
+		mail bcc: 'xinjiayang@deepglint.com', body: 'test mutibranch ci', cc: 'dg-atlas@deepglint.com', from: '', replyTo: '', subject: 'test mutibranch ci', to: 'xinjiayang@deepglint.com'
 	    }
 	}
 	stage('End') {
