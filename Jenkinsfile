@@ -30,7 +30,7 @@ pipeline {
 //	}
         stage('SendEmail'){
 	    steps{
-		mail bcc: 'xinjiayang@deepglint.com', body: 'test mutibranch ci', cc: 'dg-atlas@deepglint.com', from: '', replyTo: '', subject: 'test mutibranch ci', to: 'xinjiayang@deepglint.com'
+		emailext body: 'test ci 1', subject: 'test ci', to: 'xinjiayang@deepglint.com'
 	    }
 	}
 	stage('End') {
