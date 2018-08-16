@@ -158,7 +158,7 @@ class TestDemo(unittest.TestCase):
             rtn = resp['rtn']
             message = resp['message']
             similarity = resp['similarity']
-            self.assertEqual(rtn,201)
+            self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case11_oto(self):
@@ -185,7 +185,7 @@ class TestDemo(unittest.TestCase):
             message = resp['message']
             similarity = resp['similarity']
             self.assertEqual(rtn,200)
-            self.assertEqual(message,"ERROR")
+            self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case13_oto(self):
             url = "%s:%s/demo/1vs1" %(host,port)
@@ -210,7 +210,7 @@ class TestDemo(unittest.TestCase):
             rtn = resp['rtn']
             message = resp['message']
             similarity = resp['similarity']
-            self.assertEqual(rtn,300)
+            self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
             self.assertEqual(similarity,0.87044555)
         def test_case15_oto(self):
@@ -225,7 +225,7 @@ class TestDemo(unittest.TestCase):
             similarity = resp['similarity']
             self.assertEqual(rtn,200)
             self.assertEqual(message,"OK")
-            self.assertEqual(similarity,0.87044556)
+            self.assertEqual(similarity,0.87044555)
         def test_case16_oto(self):
             url = "%s:%s/demo/1vs1" %(host,port)
             face1="http://file.dg-atlas.com:3003/images/face/yangmi1.jpg"
