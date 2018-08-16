@@ -17,7 +17,7 @@ def anBody(face_uri):
 def otoBody(face1,face2):
     oto_body={"face_id_1":"1","image_url_1":face1,"face_id_2":"2","image_url_2":face2}
     return oto_body
-class Testvse(unittest.TestCase):
+class TestDemo(unittest.TestCase):
 	def anBody(face_uri):
             an_body={"face": face_uri}
             return an_body
