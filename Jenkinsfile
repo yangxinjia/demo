@@ -28,11 +28,14 @@ pipeline {
 		junit allowEmptyResults: true, testResults: 'report/*.xml'
 	    }
 	}
-        stage('SendEmail'){
-	    steps{
-            emailext body: '${SCRIPT,template="matrix.groovy"}',mimeType: 'text/HTML', subject: 'demo', to: 'xinjiayang@deepglint.com'
-	    }
-	}
+    stage('Send email') {
+            def mailRecipients = "xinjiayang@deepglint.com"
+            def jobName = currentBuild.fullDisplayName
+            emailext body: '''${SCRIPT, template="matrix.groovy"}''',
+            subject: "[Jenkins] ${jobName}",
+            to: "${mailRecipientsi}",
+            recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+    }
 	stage('End') {
 	    steps {
 		sh "./build.sh end"
