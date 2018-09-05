@@ -30,7 +30,7 @@ pipeline {
 	}
         stage('SendEmail'){
 	    steps{
-            emailext body: ${SCRIPT,template="matrix.groovy", subject: 'demo', to: 'xinjiayang@deepglint.com'
+            emailext body: ${SCRIPT,template="matrix.groovy"}, subject: 'demo', to: 'xinjiayang@deepglint.com'
 	    }
 	}
 	stage('End') {
