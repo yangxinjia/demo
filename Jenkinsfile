@@ -30,7 +30,7 @@ pipeline {
 	}
         stage('Sendemail') {
             steps {
-                emailext body: '${DEFAULT_CONTENT}', subject: 'demo', to: 'hongjiangli@deepglint.com'    
+                emailext body: '${SCRIPT,template="matrix.groovy"}', subject: 'demo', to: 'hongjiangli@deepglint.com'    
             }
         }
 	stage('End') {
